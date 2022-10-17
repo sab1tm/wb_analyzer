@@ -13,7 +13,7 @@ public interface CatalogFeignClient {
     @RequestMapping(method = RequestMethod.GET, value = "/menu/v5/api?lang=ru&locale=kz")
     ResponseEntity<MenuDTO> getMenu();
 
-    @RequestMapping(method = RequestMethod.GET, value = "/catalog/{shardKey}/catalog?{query}")
-    ResponseEntity<MenuDTO> getCatalog(@PathVariable String shardKey, @PathVariable String query);
+    @RequestMapping(method = RequestMethod.GET, value = "/catalog/{shardKey}/catalog?{query}&limit=100&sort=newly&page={page}&spp=25&regions=1,4,22,30,31,40,48,58,66,69,70,102&pricemarginCoeff=1.0&offlineBonus=0&onlineBonus=0&reg=1&appType=128&emp=0&locale=kz&lang=ru&curr=kzt&couponsGeo=7,3,1,6,21,16&dest=12358388,12358412,-3486954,83")
+    ResponseEntity<MenuDTO> getCatalog(@PathVariable String shardKey, @PathVariable String query, @PathVariable Integer page);
 
 }
