@@ -12,7 +12,7 @@ import java.util.List;
 @Data
 public class MenuEntity extends BaseNodeEntity {
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.EAGER, orphanRemoval = true)
     private List<NodeEntity> nodes;
 
 }

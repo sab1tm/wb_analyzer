@@ -3,7 +3,7 @@ package com.sab1tm.wb_analyzer.services;
 import com.sab1tm.wb_analyzer.data.menu.MenuEntity;
 import com.sab1tm.wb_analyzer.data.node.NodeEntity;
 import com.sab1tm.wb_analyzer.data.menu.MenuDTO;
-import com.sab1tm.wb_analyzer.feign.CatalogFeignClient;
+import com.sab1tm.wb_analyzer.feign.MenuFeignClient;
 import com.sab1tm.wb_analyzer.reposities.MenuRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -16,13 +16,13 @@ import java.util.Optional;
 @AllArgsConstructor
 public class MenuService {
 
-    private final CatalogFeignClient feignClient;
+    private final MenuFeignClient feignClient;
     private final MenuRepository repository;
     private final NodeService nodeService;
 
     public List<MenuEntity> updateMenu() {
 
-        MenuDTO dto = feignClient.getMenu().getBody();
+        MenuDTO dto = feignClient.getMenu();
 
         if (Objects.nonNull(dto.getData())) {
             for (MenuEntity menu : dto.getData()) {
@@ -33,7 +33,7 @@ public class MenuService {
             }
         }
 
-        return dto.getData();
+        return repository.findAll();
     }
 
     public MenuEntity save(MenuEntity entity) {

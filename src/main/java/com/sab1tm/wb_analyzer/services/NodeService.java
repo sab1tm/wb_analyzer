@@ -1,10 +1,12 @@
 package com.sab1tm.wb_analyzer.services;
 
 import com.sab1tm.wb_analyzer.data.node.NodeEntity;
+import com.sab1tm.wb_analyzer.data.product.ProductEntity;
 import com.sab1tm.wb_analyzer.reposities.NodeRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
