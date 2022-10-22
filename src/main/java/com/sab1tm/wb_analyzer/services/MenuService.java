@@ -40,6 +40,10 @@ public class MenuService {
         return repository.save(entity);
     }
 
+    public List<MenuEntity> getAll() {
+        return repository.findAllOrderByUpdated();
+    }
+
     public Optional<MenuEntity> getById(Long id) {
         return repository.findById(id);
     }
